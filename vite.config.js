@@ -1,7 +1,7 @@
 /** @type {import('vite').UserConfig} */
 
 const config = {
-	build: {},
+	base: "/innowise-test-assignment/",
 };
 
 export default config;
