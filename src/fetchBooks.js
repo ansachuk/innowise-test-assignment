@@ -4,12 +4,12 @@ const headers = new Headers({
 	"User-Agent": "Innowise Book Shelf/1.0 (ansachuk@icloud.com)",
 });
 
-const fetchBooks = async () => {
+const fetchBooks = async q => {
 	const books = [];
 
 	try {
 		const data = await (
-			await fetch(BASE_URL + "search.json?q=harry", {
+			await fetch(BASE_URL + `search.json?q=${q}`, {
 				headers,
 			})
 		).json();

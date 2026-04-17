@@ -4,22 +4,29 @@ import "./style.css";
 
 const refs = {
 	list: document.querySelector("#books-list"),
+	form: document.querySelector(".search-form"),
 };
 
-const handleBooksList = async () => {
-	const books = await fetchBooks();
+refs.form.addEventListener("submit", e => {
+	e.preventDefault();
 
-	console.log("books", books);
+	const value = e.currentTarget.searchInput.value;
+
+	handleBooksList(value.trim().split(" ").join("+"));
+});
+
+const handleBooksList = async q => {
+	if (!q) return;
+
+	const books = await fetchBooks(q);
 
 	const listMarkup = books
 		.map(
 			({ title, author_name }) => `<li>
-      ${author_name[0]} - ${title}
+      ${author_name.join(", ")} - ${title}
       </li>`,
 		)
 		.join("");
-
-	console.log("list", listMarkup);
 
 	refs.list.innerHTML = listMarkup;
 };
