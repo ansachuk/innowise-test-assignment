@@ -9,12 +9,12 @@ const fetchBooks = async q => {
 
 	try {
 		const data = await (
-			await fetch(BASE_URL + `search.json?q=${q}`, {
+			await fetch(BASE_URL + `search.json?fields=title,author_name,first_publish_year,cover_i,author_key&limit=10&q=${q}`, {
 				headers,
 			})
 		).json();
 
-		books.push(...data.docs.slice(0, 10));
+		books.push(...data.docs);
 	} catch (e) {
 		console.log("e", e);
 	}
