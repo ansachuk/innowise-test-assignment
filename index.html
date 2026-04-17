@@ -6,11 +6,27 @@
 		<title>Book Search App</title>
 	</head>
 	<body>
+		<header></header>
+		<h1>What we are looking for?</h1>
 		<form class="search-form">
 			<input class="search-input" name="searchInput" type="text" />
 			<button class="search-button" type="submit">search</button>
 		</form>
 		<main>
+			<form class="theme-switcher">
+				<label>
+					<input type="radio" name="theme" value="light" />
+					light
+				</label>
+				<label>
+					<input type="radio" name="theme" value="system" checked />
+					system
+				</label>
+				<label>
+					<input type="radio" name="theme" value="dark" />
+					dark
+				</label>
+			</form>
 			<ul id="books-list"></ul>
 		</main>
 		<script type="module" src="/src/index.js"></script>

@@ -1,4 +1,6 @@
-import fetchBooks from "./fetchBooks";
+import fetchBooks from "./utils/fetchBooks";
+
+import "./utils/themeHandling";
 
 import "./style.css";
 
