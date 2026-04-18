@@ -1,4 +1,8 @@
+/* vars */
+
 :root {
+	--tr-duration: 150ms;
+
 	font:
 		18px/145% system-ui,
 		"Segoe UI",
@@ -9,9 +13,7 @@
 	color: var(--text);
 	background: var(--bg);
 
-	@media (max-width: 1024px) {
-		font-size: 16px;
-	}
+	transition: background-color var(--tr-duration) linear;
 }
 
 :root[data-theme="light"] {
@@ -42,19 +44,135 @@
 	color-scheme: dark;
 }
 
-* {
+/* basic styles and normilize */
+
+*,
+*::after,
+*::before {
 	margin: 0;
 	padding: 0;
+	text-decoration: none;
+	list-style: none;
 }
 
-h1,
-h2 {
+ul,
+ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* container */
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px;
+}
+@media screen and (min-width: 480px) {
+	.container {
+		width: 480px;
+	}
+}
+@media screen and (min-width: 768px) {
+	.container {
+		width: 768px;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.container {
+		width: 1200px;
+	}
+}
+
+/* header */
+
+.header {
+	padding-top: 20px;
+	padding-bottom: 10px;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		sans-serif;
+	font-weight: bold;
+	color: var(--text-h);
+	font-size: 32px;
+}
+
+.theme-switcher {
+	position: relative;
+
+	display: flex;
+	align-items: start;
+	gap: 5px;
+
+	padding: 5px;
+
+	border: 1.5px solid var(--text-h);
+	border-radius: 16px;
+}
+
+.theme-input {
+	width: 0;
+	height: 0;
+
+	opacity: 0;
+	position: absolute;
+
+	pointer-events: none;
+}
+
+.icon {
+	padding: 1px;
+	border-radius: 8px;
+}
+
+.theme-input:checked ~ .icon {
+	background-color: var(--accent-border);
+}
+
+.theme-icon {
+	cursor: pointer;
+
+	transition: opacity var(--tr-duration);
+}
+
+.theme-icon:hover {
+	opacity: 70%;
+}
+
+.theme-icon-light {
+	stroke: var(--text-h);
+}
+
+.theme-icon-dark {
+	fill: var(--text-h);
+}
+
+/*! main */
+
+.main-title {
 	font-family: var(--heading);
 	font-weight: 500;
 	color: var(--text-h);
-}
 
-h1 {
 	font-size: 56px;
 	letter-spacing: -1.68px;
 	margin: 32px 0;
@@ -62,16 +180,4 @@ h1 {
 		font-size: 36px;
 		margin: 20px 0;
 	}
-}
-h2 {
-	font-size: 24px;
-	line-height: 118%;
-	letter-spacing: -0.24px;
-	margin: 0 0 8px;
-	@media (max-width: 1024px) {
-		font-size: 20px;
-	}
-}
-p {
-	margin: 0;
 }

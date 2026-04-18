@@ -3,30 +3,40 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Book Search App</title>
+		<title>Book Shelf</title>
 	</head>
+
 	<body>
-		<header></header>
-		<h1>What we are looking for?</h1>
-		<form class="search-form">
-			<input class="search-input" name="searchInput" type="text" />
-			<button class="search-button" type="submit">search</button>
-		</form>
-		<main>
+		<header class="header container">
+			<span class="logo">BookShelf</span>
 			<form class="theme-switcher">
-				<label>
-					<input type="radio" name="theme" value="light" />
-					light
+				<label class="theme-icon theme-icon-light">
+					<input class="theme-input" type="radio" name="theme" value="light" />
+					<svg class="icon" width="35" height="35">
+						<use href="./src/assets/light.svg"></use>
+					</svg>
 				</label>
-				<label>
-					<input type="radio" name="theme" value="system" checked />
-					system
+				<label class="theme-icon theme-icon-light">
+					<input class="theme-input" type="radio" name="theme" value="system" checked />
+					<svg class="icon" width="35" height="35">
+						<use href="./src/assets/system.svg"></use>
+					</svg>
 				</label>
-				<label>
-					<input type="radio" name="theme" value="dark" />
-					dark
+				<label class="theme-icon theme-icon-dark">
+					<input class="theme-input" type="radio" name="theme" value="dark" />
+					<svg class="icon" width="35" height="35">
+						<use href="./src/assets/dark.svg"></use>
+					</svg>
 				</label>
 			</form>
+		</header>
+		<main class="container">
+			<h1 class="main-title">What we are looking for?</h1>
+			<form class="search-form">
+				<input class="search-input" name="searchInput" type="text" />
+				<button class="search-button" type="submit">search</button>
+			</form>
+
 			<ul id="books-list"></ul>
 		</main>
 		<script type="module" src="/src/index.js"></script>

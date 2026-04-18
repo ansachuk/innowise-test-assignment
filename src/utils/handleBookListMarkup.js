@@ -10,7 +10,7 @@ const handleBooksListMarkup = async (q, listNode) => {
 		.map(({ title, author_name, cover_i, first_publish_year }) => {
 			return `
 		<li class="books-list-item">
-			<img src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg"
+			<img width="40" src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg"
 				alt="${title} - cover"
 				/>
 			${author_name.join(", ")} - ${title} (${first_publish_year})
