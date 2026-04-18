@@ -1,9 +1,9 @@
-export default function HandleThemeChange() {
-	const refs = {
-		root: document.querySelector("html"),
-		switch: document.querySelector(".theme-switcher"),
-	};
+const refs = {
+	root: document.querySelector("html"),
+	switch: document.querySelector(".theme-switcher"),
+};
 
+export default function handleThemeChange() {
 	// Check if the preferred scheme is dark
 	const getSystemTheme = () => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
@@ -28,5 +28,3 @@ export default function HandleThemeChange() {
 		setTheme(switchValue);
 	});
 }
-
-HandleThemeChange();
