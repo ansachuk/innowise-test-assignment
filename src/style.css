@@ -72,6 +72,13 @@ svg {
 	height: auto;
 }
 
+body {
+	display: flex;
+	flex-direction: column;
+
+	height: 100vh;
+}
+
 /* container */
 
 .container {
@@ -114,11 +121,11 @@ svg {
 	font-weight: bold;
 	color: var(--text-h);
 	font-size: 32px;
+
+	padding: 12px 0;
 }
 
 .theme-switcher {
-	position: relative;
-
 	display: flex;
 	align-items: start;
 	gap: 5px;
@@ -156,6 +163,7 @@ svg {
 
 .theme-icon:hover {
 	opacity: 70%;
+	background-color: var(--accent-bg);
 }
 
 .theme-icon-light {
@@ -168,6 +176,16 @@ svg {
 
 /*! main */
 
+.main {
+	height: 100%;
+
+	padding-top: 160px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
 .main-title {
 	font-family: var(--heading);
 	font-weight: 500;
@@ -176,8 +194,42 @@ svg {
 	font-size: 56px;
 	letter-spacing: -1.68px;
 	margin: 32px 0;
+	background-color: var(--accent-bg);
+
 	@media (max-width: 1024px) {
-		font-size: 36px;
-		margin: 20px 0;
+		font-size: 40px;
+		margin: 50px 0;
 	}
+}
+
+/* form */
+
+.search-form {
+	display: flex;
+	gap: 4px;
+}
+
+.search-input {
+	width: 100%;
+	height: 30px;
+
+	padding: 4px 8px;
+
+	font-size: 20px;
+	border-radius: 20px;
+}
+
+.search-button {
+	background-color: #fff;
+
+	width: 45px;
+	height: 45px;
+
+	cursor: pointer;
+
+	border-radius: 25px;
+}
+
+.search-button:hover {
+	background-color: teal;
 }
