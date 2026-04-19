@@ -1,5 +1,5 @@
 /* vars */
-
+/* todo make sure code remain same style */
 :root {
 	--tr-duration: 150ms;
 
@@ -51,8 +51,8 @@
 *::before {
 	margin: 0;
 	padding: 0;
-	text-decoration: none;
-	list-style: none;
+
+	box-sizing: border-box;
 }
 
 ul,
@@ -102,6 +102,31 @@ body {
 	}
 }
 
+/* loader */
+
+.loader {
+	width: 75%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 3px solid var(--bg);
+	border-right-color: transparent;
+	animation: spin 2s infinite linear;
+}
+@keyframes spin {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+.loader-cover {
+	width: 25%;
+
+	border: 7px solid var(--accent);
+	border-right-color: transparent;
+
+	animation-duration: 1s;
+}
+
 /* header */
 
 .header {
@@ -112,6 +137,7 @@ body {
 
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .logo {
@@ -123,8 +149,6 @@ body {
 	font-weight: bold;
 	color: var(--text-h);
 	font-size: 32px;
-
-	padding: 12px 0;
 }
 
 .theme-switcher {
@@ -185,10 +209,6 @@ body {
 	height: 100%;
 
 	padding-top: 160px;
-
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
 }
 
 .main-title {
@@ -203,7 +223,7 @@ body {
 	background-color: var(--accent-bg);
 
 	@media (max-width: 1024px) {
-		font-size: 40px;
+		font-size: 52px;
 		margin: 50px 0;
 	}
 }
@@ -214,15 +234,21 @@ body {
 	display: flex;
 	justify-content: space-between;
 	gap: 4px;
+
+	margin-bottom: 40px;
+
+	@media screen and (min-width: 768px) {
+		gap: 2px;
+	}
 }
 
 .search-input {
 	font-family: var(--heading);
 
-	width: 75%;
-	height: 30px;
+	width: 90%;
+	height: 45px;
 
-	padding: 8px 16px;
+	padding: 10px 14px;
 
 	font-size: 20px;
 	border-radius: 20px;
@@ -230,16 +256,12 @@ body {
 
 	outline: none;
 
-	transition-property: border box-shadow;
+	transition-property: border-color box-shadow;
 	transition-duration: var(--tr-duration);
 	transition-timing-function: linear;
 
-	@media screen and (min-width: 480px) {
-		width: 90%;
-	}
-
-	@media screen and (min-width: 1024px) {
-		width: 95%;
+	@media screen and (min-width: 768px) {
+		width: 97%;
 	}
 }
 
@@ -258,8 +280,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	padding: 0 6px;
 
 	background-color: var(--text-h);
 
@@ -282,22 +302,72 @@ body {
 	opacity: 60%;
 }
 
-.search-button svg {
-	height: 100%;
-}
+#books-list {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
 
-/* loader */
-
-.loader {
-	width: 75%;
-	aspect-ratio: 1;
-	border-radius: 50%;
-	border: 3px solid var(--bg);
-	border-right-color: transparent;
-	animation: spin 2s infinite linear;
-}
-@keyframes spin {
-	to {
-		transform: rotate(1turn);
+	@media screen and (min-width: 480px) {
 	}
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	@media screen and (min-width: 1200px) {
+		gap: 15px;
+	}
+
+	padding-bottom: 50px;
+}
+
+.books-list-item {
+	background-color: var(--accent-bg);
+	outline: 1px solid var(--accent-border);
+	border-radius: 12px;
+
+	padding: 8px 12px;
+
+	flex-basis: 100%;
+
+	@media screen and (min-width: 768px) {
+		flex-basis: calc((100% - 2 * 25px) / 3);
+	}
+	@media screen and (min-width: 1200px) {
+		flex-basis: calc((100% - 3 * 15px) / 4);
+	}
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+
+.book-cover {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 180px;
+	height: 290px;
+
+	border-radius: 12px;
+
+	background-color: #fff;
+}
+
+.cover-image {
+	position: absolute;
+
+	height: 100%;
+	width: 100%;
+
+	object-fit: fill;
+	border-radius: 12px;
+}
+
+.book-name,
+.book-year {
+	text-align: center;
+
+	font-weight: 600;
 }

@@ -9,13 +9,19 @@ const handleBooksListMarkup = async (q, listNode) => {
 	const listMarkup = books
 		.map(({ title, author_name, cover_i, first_publish_year }) => {
 			return `
-		<li class="books-list-item">
-			<img width="40" src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg"
-				alt="${title} - cover"
-				/>
-			${author_name.join(", ")} - ${title} (${first_publish_year})
-			<input type="checkbox" id='${cover_i}' ${savedFavorites.includes(cover_i.toString()) ? "checked" : ""}>
-		</li>`;
+			<li class="books-list-item">
+					<div class="book-cover">
+						<div class="loader loader-cover"></div>
+						<img class="cover-image" src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg" alt="${title} - cover" />
+					</div>
+
+					<p class="book-name">${title}</p>
+
+					<p class="book-author">${author_name.join(", ")}</p>
+
+					<p class="book-year">${first_publish_year}</p>
+
+				</li>`;
 		})
 		.join("");
 
@@ -23,3 +29,5 @@ const handleBooksListMarkup = async (q, listNode) => {
 };
 
 export default handleBooksListMarkup;
+
+// <input type="checkbox" id='${cover_i}' ${savedFavorites.includes(cover_i.toString()) ? "checked" : ""}>

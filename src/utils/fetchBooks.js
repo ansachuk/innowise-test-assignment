@@ -17,7 +17,7 @@ const fetchBooks = async q => {
 
 	try {
 		const data = await (
-			await fetch(BASE_URL + `search.json?fields=title,author_name,first_publish_year,cover_i,author_key&limit=10&q=${q}`, {
+			await fetch(BASE_URL + `search.json?fields=title,author_name,first_publish_year,cover_i,author_key&limit=12&q=${q}`, {
 				headers,
 			})
 		).json();
