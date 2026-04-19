@@ -108,6 +108,8 @@ body {
 	padding-top: 20px;
 	padding-bottom: 10px;
 
+	gap: 16px;
+
 	display: flex;
 	justify-content: space-between;
 }
@@ -136,14 +138,16 @@ body {
 	border-radius: 16px;
 }
 
-.theme-input {
-	width: 0;
-	height: 0;
-
-	opacity: 0;
+.hidden {
+	display: none;
 	position: absolute;
-
-	pointer-events: none;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	margin: -5px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
 }
 
 .icon {
@@ -162,6 +166,7 @@ body {
 }
 
 .theme-icon:hover {
+	border-radius: 8px;
 	opacity: 70%;
 	background-color: var(--accent-bg);
 }
@@ -188,6 +193,7 @@ body {
 
 .main-title {
 	font-family: var(--heading);
+	line-height: 80%;
 	font-weight: 500;
 	color: var(--text-h);
 
@@ -206,30 +212,92 @@ body {
 
 .search-form {
 	display: flex;
+	justify-content: space-between;
 	gap: 4px;
 }
 
 .search-input {
-	width: 100%;
+	font-family: var(--heading);
+
+	width: 75%;
 	height: 30px;
 
-	padding: 4px 8px;
+	padding: 8px 16px;
 
 	font-size: 20px;
 	border-radius: 20px;
+	border: 1px solid #302a395e;
+
+	outline: none;
+
+	transition-property: border box-shadow;
+	transition-duration: var(--tr-duration);
+	transition-timing-function: linear;
+
+	@media screen and (min-width: 480px) {
+		width: 90%;
+	}
+
+	@media screen and (min-width: 1024px) {
+		width: 95%;
+	}
+}
+
+.search-input:focus {
+	border: 1px solid transparent;
+	box-shadow:
+		rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.search-input::placeholder {
+	opacity: 50%;
 }
 
 .search-button {
-	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-	width: 45px;
-	height: 45px;
+	padding: 0 6px;
+
+	background-color: var(--text-h);
 
 	cursor: pointer;
 
-	border-radius: 25px;
+	height: 45px;
+	width: 45px;
+
+	border: none;
+	border-radius: 50%;
+
+	stroke: var(--bg);
 }
 
 .search-button:hover {
-	background-color: teal;
+	opacity: 80%;
+}
+
+.search-button:active {
+	opacity: 60%;
+}
+
+.search-button svg {
+	height: 100%;
+}
+
+/* loader */
+
+.loader {
+	width: 75%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 3px solid var(--bg);
+	border-right-color: transparent;
+	animation: spin 2s infinite linear;
+}
+@keyframes spin {
+	to {
+		transform: rotate(1turn);
+	}
 }
