@@ -9,35 +9,38 @@
 	<body>
 		<header class="header container">
 			<div class="logo">BookShelf</div>
+
 			<form class="theme-switcher">
 				<label class="theme-icon theme-icon-light">
 					<input class="hidden" type="radio" name="theme" value="light" />
 					<svg class="icon" width="35" height="35">
-						<use href="./src/assets/light.svg"></use>
+						<use href="./src/assets/icons.svg#sun"></use>
 					</svg>
 				</label>
 				<label class="theme-icon theme-icon-light">
 					<input class="hidden" type="radio" name="theme" value="system" checked />
 					<svg class="icon" width="35" height="35">
-						<use href="./src/assets/system.svg"></use>
+						<use href="./src/assets/icons.svg#system"></use>
 					</svg>
 				</label>
 				<label class="theme-icon theme-icon-dark">
 					<input class="hidden" type="radio" name="theme" value="dark" />
 					<svg class="icon" width="35" height="35">
-						<use href="./src/assets/dark.svg"></use>
+						<use href="./src/assets/icons.svg#moon"></use>
 					</svg>
 				</label>
 			</form>
 		</header>
+
 		<main class="main container">
 			<h1 class="main-title">What we are looking for?</h1>
+
 			<form class="search-form">
 				<input required class="search-input" placeholder="Enter book name" name="searchInput" type="text" />
 				<button class="search-button" type="submit">
 					<div class="search-button-loader loader hidden"></div>
-					<svg class="search-icon">
-						<use href="./src/assets/arrow-up.svg"></use>
+					<svg class="search-icon" width="30" height="30">
+						<use href="./src/assets/icons.svg#arrow-up"></use>
 					</svg>
 				</button>
 			</form>

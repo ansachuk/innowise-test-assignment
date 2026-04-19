@@ -155,7 +155,7 @@ body {
 	border-radius: 8px;
 }
 
-.theme-input:checked ~ .icon {
+.theme-icon input:checked ~ .icon {
 	background-color: var(--accent-border);
 }
 
