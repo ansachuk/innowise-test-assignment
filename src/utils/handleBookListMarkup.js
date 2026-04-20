@@ -11,7 +11,7 @@ const createListMarkup = (books, savedFavorites) =>
 				? `<div class="loader loader-cover"></div>
 						<img class="cover-image" src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg" alt="${title} - cover" />`
 				: `<svg class="no-cover" width="50" height="50">
-						<use href="./src/assets/icons.svg#no-image"></use>
+						<use href="./assets/icons.svg#no-image"></use>
 					</svg>`;
 
 			return `
@@ -30,7 +30,7 @@ const createListMarkup = (books, savedFavorites) =>
 						<input type="checkbox" class="hidden" id='${key}' ${savedFavorites.includes(key.toString()) ? "checked" : ""}>
 						<div class="favorite-checkbox-icon">
 							<svg class="icon" width="30" height="30">
-								<use href="./src/assets/icons.svg#heart-solid"></use>
+								<use href="./assets/icons.svg#heart-solid"></use>
 							</svg>
 						</div>
 					</label>
@@ -42,7 +42,7 @@ const createListMarkup = (books, savedFavorites) =>
 const createBadResultMarkup = errorCode =>
 	`<li class="bad-result">
 		<svg width="70" height="70">
-			<use href="./src/assets/icons.svg#no-result"></use>
+			<use href="./assets/icons.svg#no-result"></use>
 		</svg>
 		<p>There is no book with ${errorCode === 422 ? "such a short" : "that"} title...</p>
 	</li>`;
