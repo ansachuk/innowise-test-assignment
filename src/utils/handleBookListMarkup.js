@@ -1,13 +1,12 @@
 import fetchBooks from "./fetchBooks";
 
-const handleBooksListMarkup = async (q, listNode) => {
-	if (!q) return;
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-	const books = await fetchBooks(q);
-	const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+const scrollToInput = listNode => window.scrollTo({ top: listNode.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
 
-	const listMarkup = books
-		.map(({ title, author_name, cover_i, first_publish_year, key }) => {
+const createListMarkup = (books, savedFavorites) =>
+	books
+		.map(({ title, author_name = [], cover_i, first_publish_year = "", key }) => {
 			const coverMarkup = cover_i
 				? `<div class="loader loader-cover"></div>
 						<img class="cover-image" src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg" alt="${title} - cover" />`
@@ -40,9 +39,43 @@ const handleBooksListMarkup = async (q, listNode) => {
 		})
 		.join("");
 
-	listNode.innerHTML = listMarkup;
+const createBadResultMarkup = errorCode =>
+	`<li class="bad-result">
+		<svg width="70" height="70">
+			<use href="./src/assets/icons.svg#no-result"></use>
+		</svg>
+		<p>There is no book with ${errorCode === 422 ? "such a short" : "that"} title...</p>
+	</li>`;
 
-	window.scrollTo({ top: listNode.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
+const handleBooksListMarkup = async (q, listNode) => {
+	if (!q || !listNode) return;
+
+	let finalMarkup = "";
+	let books = [];
+	const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+	if (q.length < 3) {
+		scrollToTop();
+		setTimeout(() => {
+			listNode.innerHTML = createBadResultMarkup(422);
+		}, 300);
+		return;
+	} else {
+		books = await fetchBooks(q);
+	}
+
+	if (books?.length === 0) {
+		scrollToTop();
+		setTimeout(() => {
+			listNode.innerHTML = createBadResultMarkup(404);
+		}, 300);
+	} else {
+		finalMarkup = createListMarkup(books, savedFavorites);
+	}
+
+	listNode.innerHTML = finalMarkup;
+
+	scrollToInput(listNode);
 };
 
 export default handleBooksListMarkup;

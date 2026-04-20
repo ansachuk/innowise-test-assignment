@@ -21,4 +21,4 @@ refs.form.addEventListener("submit", e => {
 refs.list.addEventListener("click", ({ target }) => (target.nodeName === "INPUT" ? handleFavorites(target.id) : null));
 
 // DELETE
-handleBooksListMarkup("react", refs.list);
+// handleBooksListMarkup("react", refs.list);

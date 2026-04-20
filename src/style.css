@@ -406,3 +406,18 @@ body {
 .favorite-checkbox input:checked ~ .favorite-checkbox-icon {
 	fill: var(--accent);
 }
+
+.bad-result {
+	margin: 60px auto 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+
+	font-size: 32px;
+	line-height: 90%;
+	text-align: center;
+
+	stroke: var(--text);
+}

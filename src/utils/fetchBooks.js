@@ -5,6 +5,9 @@ const searchLoaderRef = searchBtnRef.firstElementChild;
 const searchIconRef = searchBtnRef.lastElementChild;
 
 const fetchBooks = async q => {
+	if (q.lenght < 3) {
+		throw new Error(e);
+	}
 	const books = [];
 
 	searchBtnRef.setAttribute("disabled", "");
@@ -18,7 +21,7 @@ const fetchBooks = async q => {
 
 		books.push(...data.docs);
 	} catch (e) {
-		console.log("e", e);
+		throw new Error(e);
 	}
 
 	searchBtnRef.removeAttribute("disabled");
