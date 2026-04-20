@@ -23,7 +23,7 @@
 	--border: #e5e4e7;
 	--code-bg: #f4f3ec;
 	--accent: #aa3bff;
-	--accent-bg: rgba(170, 59, 255, 0.1);
+	--accent-bg: rgba(170, 59, 255, 0.2);
 	--accent-border: rgba(170, 59, 255, 0.5);
 	--shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
@@ -208,7 +208,7 @@ body {
 .main {
 	height: 100%;
 
-	padding-top: 160px;
+	padding-top: 130px;
 }
 
 .main-title {
@@ -256,20 +256,17 @@ body {
 
 	outline: none;
 
-	transition-property: border-color box-shadow;
+	transition-property: border-color;
 	transition-duration: var(--tr-duration);
 	transition-timing-function: linear;
 
 	@media screen and (min-width: 768px) {
-		width: 97%;
+		width: 96%;
 	}
 }
 
 .search-input:focus {
-	border: 1px solid transparent;
-	box-shadow:
-		rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	border: 1px solid var(--accent);
 }
 
 .search-input::placeholder {
@@ -321,6 +318,7 @@ body {
 }
 
 .books-list-item {
+	position: relative;
 	background-color: var(--accent-bg);
 	outline: 1px solid var(--accent-border);
 	border-radius: 12px;
@@ -365,9 +363,46 @@ body {
 	border-radius: 12px;
 }
 
+.no-cover {
+	stroke: var(--accent);
+}
+
 .book-name,
-.book-year {
+.book-year,
+.book-author {
 	text-align: center;
 
 	font-weight: 600;
+}
+
+.favorite-checkbox {
+	position: absolute;
+
+	right: 10px;
+	top: 10px;
+}
+
+.favorite-checkbox-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3px;
+
+	border-radius: 50%;
+
+	background-color: #fcf7ff;
+	stroke: var(--accent);
+	fill: none;
+
+	cursor: pointer;
+
+	transition: fill var(--tr-duration) ease;
+}
+
+.favorite-checkbox-icon:hover {
+	fill: var(--accent-bg);
+}
+
+.favorite-checkbox input:checked ~ .favorite-checkbox-icon {
+	fill: var(--accent);
 }

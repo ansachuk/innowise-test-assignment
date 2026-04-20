@@ -12,7 +12,9 @@ const fetchBooks = async q => {
 	searchIconRef.classList.add("hidden");
 
 	try {
-		const data = await (await fetch(BASE_URL + `search.json?fields=title,author_name,first_publish_year,cover_i,author_key&limit=12&q=${q}`)).json();
+		const data = await (
+			await fetch(BASE_URL + `search.json?fields=title,author_name,first_publish_year,cover_i,author_key,key&limit=12&q=${q}`)
+		).json();
 
 		books.push(...data.docs);
 	} catch (e) {
