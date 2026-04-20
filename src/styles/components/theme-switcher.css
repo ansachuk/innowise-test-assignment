@@ -1,0 +1,39 @@
+.theme-switcher {
+	display: flex;
+	align-items: start;
+	gap: 5px;
+
+	padding: 5px;
+
+	border: 1.5px solid var(--text-h);
+	border-radius: 16px;
+}
+
+.icon {
+	padding: 1px;
+	border-radius: 8px;
+}
+
+.theme-icon input:checked ~ .icon {
+	background-color: var(--accent-border);
+}
+
+.theme-icon {
+	cursor: pointer;
+
+	transition: opacity var(--tr-duration);
+}
+
+.theme-icon:hover {
+	border-radius: 8px;
+	opacity: 70%;
+	background-color: var(--accent-bg);
+}
+
+.theme-icon-light {
+	stroke: var(--text-h);
+}
+
+.theme-icon-dark {
+	fill: var(--text-h);
+}

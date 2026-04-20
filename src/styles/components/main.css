@@ -1,0 +1,57 @@
+/*! main */
+
+.main {
+	height: 100%;
+
+	padding-top: 130px;
+}
+
+.main-title {
+	font-family: var(--heading);
+	line-height: 80%;
+	font-weight: 500;
+	color: var(--text-h);
+
+	font-size: 56px;
+	letter-spacing: -1.68px;
+	margin: 32px 0;
+	background-color: var(--accent-bg);
+
+	@media (max-width: 1024px) {
+		font-size: 52px;
+		margin: 50px 0;
+	}
+}
+
+#books-list {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+
+	@media screen and (min-width: 480px) {
+	}
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	@media screen and (min-width: 1200px) {
+		gap: 15px;
+	}
+
+	padding-bottom: 50px;
+}
+
+.bad-result {
+	margin: 60px auto 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+
+	font-size: 32px;
+	line-height: 90%;
+	text-align: center;
+
+	stroke: var(--text);
+}

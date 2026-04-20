@@ -1,0 +1,50 @@
+/* container */
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 15px;
+
+	@media screen and (min-width: 480px) {
+		width: 480px;
+	}
+
+	@media screen and (min-width: 768px) {
+		width: 768px;
+	}
+
+	@media screen and (min-width: 1200px) {
+		width: 1200px;
+	}
+}
+
+/* loader */
+
+.loader {
+	width: 75%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 3px solid var(--bg);
+	border-right-color: transparent;
+	animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+/* hidden styles */
+
+.hidden {
+	display: none;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	margin: -5px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+}

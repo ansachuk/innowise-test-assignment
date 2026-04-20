@@ -1,0 +1,98 @@
+.books-list-item {
+	position: relative;
+	background-color: var(--accent-bg);
+	outline: 1px solid var(--accent-border);
+	border-radius: 12px;
+
+	padding: 8px 12px;
+
+	flex-basis: 100%;
+
+	@media screen and (min-width: 768px) {
+		flex-basis: calc((100% - 2 * 25px) / 3);
+	}
+	@media screen and (min-width: 1200px) {
+		flex-basis: calc((100% - 3 * 15px) / 4);
+	}
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+
+.book-cover {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 180px;
+	height: 290px;
+
+	border-radius: 12px;
+
+	background-color: #fff;
+}
+
+.cover-image {
+	position: absolute;
+
+	height: 100%;
+	width: 100%;
+
+	object-fit: fill;
+	border-radius: 12px;
+}
+
+.loader-cover {
+	width: 25%;
+
+	border: 7px solid var(--accent);
+	border-right-color: transparent;
+
+	animation-duration: 1s;
+}
+
+.no-cover {
+	stroke: var(--accent);
+}
+
+.book-name,
+.book-year,
+.book-author {
+	text-align: center;
+
+	font-weight: 600;
+}
+
+.favorite-checkbox {
+	position: absolute;
+
+	right: 10px;
+	top: 10px;
+}
+
+.favorite-checkbox-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3px;
+
+	border-radius: 50%;
+
+	background-color: #fcf7ff;
+	stroke: var(--accent);
+	fill: none;
+
+	cursor: pointer;
+
+	transition: fill var(--tr-duration) ease;
+}
+
+.favorite-checkbox-icon:hover {
+	fill: var(--accent-bg);
+}
+
+.favorite-checkbox input:checked ~ .favorite-checkbox-icon {
+	fill: var(--accent);
+}

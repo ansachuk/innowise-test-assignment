@@ -1,0 +1,48 @@
+/* basic styles and normilize */
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: border-box;
+}
+
+html {
+	font:
+		18px/145% system-ui,
+		"Segoe UI",
+		Roboto,
+		sans-serif;
+	letter-spacing: 0.18px;
+
+	color: var(--text);
+	background: var(--bg);
+
+	transition: background-color var(--tr-duration) linear;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+
+	height: 100vh;
+}

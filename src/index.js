@@ -2,7 +2,7 @@ import handleBooksListMarkup from "./utils/handleBookListMarkup";
 import handleFavorites from "./utils/handleFavorites";
 import handleThemeChange from "./utils/handleTheme";
 
-import "./style.css";
+import "./index.css";
 
 handleThemeChange();
 

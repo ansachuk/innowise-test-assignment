@@ -1,0 +1,23 @@
+/* header */
+
+.header {
+	padding-top: 20px;
+	padding-bottom: 10px;
+
+	gap: 16px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	font-family:
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		sans-serif;
+	font-weight: bold;
+	color: var(--text-h);
+	font-size: 32px;
+}
