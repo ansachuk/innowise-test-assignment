@@ -82,7 +82,7 @@
 
 	background-color: #fcf7ff;
 	stroke: var(--accent);
-	fill: none;
+	color: transparent;
 
 	cursor: pointer;
 
@@ -90,9 +90,9 @@
 }
 
 .favorite-checkbox-icon:hover {
-	fill: var(--accent-bg);
+	color: var(--accent-bg);
 }
 
 .favorite-checkbox input:checked ~ .favorite-checkbox-icon {
-	fill: var(--accent);
+	color: var(--accent);
 }

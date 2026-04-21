@@ -27,7 +27,10 @@
 .theme-icon:hover {
 	border-radius: 8px;
 	opacity: 70%;
-	background-color: var(--accent);
+
+	@media screen and (min-width: 768px) {
+		background-color: var(--accent);
+	}
 }
 
 .theme-icon-light {
