@@ -1,7 +1,7 @@
 const handleFavorites = inputNode => {
 	const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-	const favoriteBook = [inputNode.id, inputNode.dataset.title];
+	const favoriteBook = [inputNode.id, inputNode.dataset.title, inputNode.dataset.coverid];
 
 	if (savedFavorites.some(book => book[0] === inputNode.id)) {
 		const newFavorites = savedFavorites.filter(book => book[0] !== inputNode.id);

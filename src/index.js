@@ -1,11 +1,10 @@
-import handleFavoritesAside from "./js/handleFavoritesAside";
 import handleThemeChange from "./js/handleTheme";
 import handleBooksListMarkup from "./js/handleBookListMarkup";
 import handleFavorites from "./js/handleFavorites";
+import "./js/handleFavoritesAside";
 
 import "./index.css";
 
-handleFavoritesAside();
 handleThemeChange();
 
 const refs = {

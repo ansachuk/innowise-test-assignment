@@ -7,8 +7,6 @@ const scrollToInput = listNode => window.scrollTo({ top: listNode.getBoundingCli
 const createListMarkup = (books, savedFavorites) =>
 	books
 		.map(({ title, author_name = [], cover_i, first_publish_year = "", key }) => {
-			const olid = key.split("/")[2];
-
 			const coverMarkup = cover_i
 				? `<div class="loader loader-cover"></div>
 						<img class="cover-image" src="https://covers.openlibrary.org/b/id/${cover_i}-M.jpg" alt="${title} - cover" />`
@@ -29,7 +27,7 @@ const createListMarkup = (books, savedFavorites) =>
 					<p class="book-year">${first_publish_year}</p>
 
 					<label class="favorite-checkbox">
-						<input type="checkbox" class="hidden" data-title="${title}" id='${olid}' ${savedFavorites.some(book => book[0] === olid) ? "checked" : ""}>
+						<input type="checkbox" class="hidden" data-coverid="${cover_i}" data-title="${title}" id='${key}' ${savedFavorites.some(book => book[0] === key) ? "checked" : ""}>
 						<div class="favorite-checkbox-icon">
 							<svg class="icon" width="30" height="30">
 								<use href="./assets/icons.svg#heart-solid"></use>
