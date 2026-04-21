@@ -20,7 +20,7 @@ refs.form.addEventListener("submit", e => {
 	handleBooksListMarkup(value, refs.list);
 });
 
-refs.list.addEventListener("click", ({ target }) => (target.nodeName === "INPUT" ? handleFavorites(target.id) : null));
+refs.list.addEventListener("click", ({ target }) => (target.nodeName === "INPUT" ? handleFavorites(target) : null));
 
 // DELETE
-// handleBooksListMarkup("react", refs.list);
+handleBooksListMarkup("react", refs.list);

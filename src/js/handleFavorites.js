@@ -1,11 +1,13 @@
-const handleFavorites = inputID => {
+const handleFavorites = inputNode => {
 	const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-	if (savedFavorites.includes(inputID)) {
-		const newFavorites = savedFavorites.filter(id => id !== inputID);
+	const favoriteBook = [inputNode.id, inputNode.dataset.title];
+
+	if (savedFavorites.some(book => book[0] === inputNode.id)) {
+		const newFavorites = savedFavorites.filter(book => book[0] !== inputNode.id);
 		localStorage.setItem("favorites", JSON.stringify(newFavorites));
 	} else {
-		const newFavorites = [...savedFavorites, inputID];
+		const newFavorites = [...savedFavorites, favoriteBook];
 		localStorage.setItem("favorites", JSON.stringify(newFavorites));
 	}
 };
