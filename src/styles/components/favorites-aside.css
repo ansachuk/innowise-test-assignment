@@ -61,3 +61,9 @@
 
 	color: var(--border);
 }
+
+.aside-list-item {
+	display: flex;
+	justify-content: space-between;
+	color: aqua;
+}
