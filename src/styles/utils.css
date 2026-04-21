@@ -38,7 +38,6 @@
 /* hidden styles */
 
 .hidden {
-	display: none;
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -46,5 +45,24 @@
 	margin: -5px;
 	border: 0;
 	padding: 0;
-	clip: rect(0 0 0 0);
+	visibility: hidden;
+	opacity: 0;
+}
+
+.backdrop {
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	z-index: 100;
+
+	display: inline-flex;
+	justify-content: end;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.3);
+
+	transition-property: visibility, opacity;
+	transition-duration: var(--tr-duration);
+	transition-timing-function: linear;
 }

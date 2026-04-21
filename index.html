@@ -10,33 +10,53 @@
 		<header class="header container">
 			<div class="logo">BookShelf</div>
 
-			<!-- <button type="button" class="favorites-open">
-				<svg class="icon" width="35" height="35">
+			<button type="button" class="favorites-open">
+				<svg width="35" height="35">
 					<use href="./src/assets/icons.svg#favorites"></use>
 				</svg>
-			</button> -->
-
-			<form class="theme-switcher">
-				<label class="theme-icon theme-icon-light">
-					<input class="hidden" type="radio" name="theme" value="light" />
-					<svg class="icon" width="35" height="35">
-						<use href="./src/assets/icons.svg#sun"></use>
-					</svg>
-				</label>
-				<label class="theme-icon theme-icon-light">
-					<input class="hidden" type="radio" name="theme" value="system" checked />
-					<svg class="icon" width="35" height="35">
-						<use href="./src/assets/icons.svg#system"></use>
-					</svg>
-				</label>
-				<label class="theme-icon theme-icon-dark">
-					<input class="hidden" type="radio" name="theme" value="dark" />
-					<svg class="icon" width="35" height="35">
-						<use href="./src/assets/icons.svg#moon"></use>
-					</svg>
-				</label>
-			</form>
+			</button>
 		</header>
+
+		<div class="backdrop hidden">
+			<aside class="favorites-aside">
+				<header class="favorites-aside-header">
+					<button type="button" class="favorites-close">
+						<svg width="35" height="35">
+							<use href="./src/assets/icons.svg#close"></use>
+						</svg>
+					</button>
+					<form class="theme-switcher">
+						<label class="theme-icon theme-icon-light">
+							<input class="hidden" type="radio" name="theme" value="light" />
+							<svg class="icon" width="35" height="35">
+								<use href="./src/assets/icons.svg#sun"></use>
+							</svg>
+						</label>
+						<label class="theme-icon theme-icon-light">
+							<input class="hidden" type="radio" name="theme" value="system" checked />
+							<svg class="icon" width="35" height="35">
+								<use href="./src/assets/icons.svg#system"></use>
+							</svg>
+						</label>
+						<label class="theme-icon theme-icon-dark">
+							<input class="hidden" type="radio" name="theme" value="dark" />
+							<svg class="icon" width="35" height="35">
+								<use href="./src/assets/icons.svg#moon"></use>
+							</svg>
+						</label>
+					</form>
+				</header>
+
+				<ul class="aside-favorites-list">
+					<li class="no-favorite">
+						<svg width="80" height="80">
+							<use href="./src/assets/icons.svg#broken-heart"></use>
+						</svg>
+						<p>No favorites...</p>
+					</li>
+				</ul>
+			</aside>
+		</div>
 
 		<main class="main container">
 			<h1 class="main-title">What we are looking for?</h1>

@@ -6,6 +6,10 @@
 
 	gap: 16px;
 
+	@media screen and (max-width: 480px) {
+		width: 100%;
+	}
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -20,4 +24,26 @@
 	font-weight: bold;
 	color: var(--text-h);
 	font-size: 32px;
+}
+
+.favorites-open {
+	background-color: var(--accent-bg);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3px;
+
+	cursor: pointer;
+
+	border: none;
+	border-radius: 8px;
+
+	color: var(--text-h);
+
+	transition: background-color var(--tr-duration) linear;
+}
+
+.favorites-open:hover {
+	background-color: var(--accent);
 }

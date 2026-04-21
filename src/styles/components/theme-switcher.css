@@ -27,7 +27,7 @@
 .theme-icon:hover {
 	border-radius: 8px;
 	opacity: 70%;
-	background-color: var(--accent-bg);
+	background-color: var(--accent);
 }
 
 .theme-icon-light {
