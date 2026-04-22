@@ -41,6 +41,39 @@
 	opacity: 50%;
 }
 
+.search-input:placeholder-shown ~ .reset-btn {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.reset-btn {
+	position: absolute;
+
+	background-color: transparent;
+
+	border: none;
+	border-radius: 8px;
+
+	color: var(--accent);
+
+	top: 6px;
+	right: 7px;
+
+	cursor: pointer;
+
+	transition-property: opacity background-color;
+	transition-timing-function: linear;
+	transition-duration: var(--tr-duration);
+}
+
+.reset-btn:hover {
+	background-color: var(--accent-bg);
+}
+
+.reset-btn:active {
+	opacity: 70%;
+}
+
 .preview-list {
 	position: absolute;
 	z-index: 50;

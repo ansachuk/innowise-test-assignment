@@ -5,6 +5,7 @@ import debounce from "./debounce";
 const refs = {
 	input: document.querySelector(".search-input"),
 	preview: document.querySelector(".preview-list"),
+	resetBtn: document.querySelector(".reset-btn"),
 };
 
 const previewFallback = `<li class="preview-fallback"><div class="loader preview-loader"></div></li>`;
@@ -20,6 +21,13 @@ const createPreviewMarkup = previewList =>
       `;
 		})
 		.join("");
+
+refs.resetBtn.addEventListener("click", () => {
+	refs.preview.classList.add("hidden");
+	refs.input.value = "";
+
+	document.querySelector("#books-list").innerHTML = "";
+});
 
 refs.input.addEventListener(
 	"input",
