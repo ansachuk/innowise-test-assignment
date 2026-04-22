@@ -10,6 +10,7 @@
 		<header class="header container">
 			<div class="logo">BookShelf</div>
 
+			<!-- Open aside  -->
 			<button type="button" class="favorites-open">
 				<svg width="35" height="35">
 					<use href="./src/assets/icons.svg#favorites"></use>
@@ -18,6 +19,7 @@
 		</header>
 
 		<div class="backdrop hidden">
+			<!-- Favorites aside -->
 			<aside class="favorites-aside">
 				<header class="favorites-aside-header">
 					<button type="button" class="favorites-close">
@@ -25,6 +27,8 @@
 							<use href="./src/assets/icons.svg#close"></use>
 						</svg>
 					</button>
+
+					<!-- Theme switcher -->
 					<form class="theme-switcher">
 						<label class="theme-icon theme-icon-light">
 							<input class="hidden" type="radio" name="theme" value="light" />
@@ -47,6 +51,7 @@
 					</form>
 				</header>
 
+				<!-- Favorites list -->
 				<ul class="aside-favorites-list"></ul>
 			</aside>
 		</div>
@@ -56,14 +61,18 @@
 
 			<form class="search-form">
 				<div class="search">
+					<!-- Search input -->
 					<input required class="search-input" placeholder="Enter book name" name="searchInput" type="text" />
+					<!-- Reset button -->
 					<button class="reset-btn" type="button">
 						<svg width="32" height="32">
 							<use href="./src/assets/icons.svg#close"></use>
 						</svg>
 					</button>
+					<!-- Preview list -->
 					<ul class="preview-list hidden"></ul>
 				</div>
+				<!-- Search button -->
 				<button class="search-button" type="submit">
 					<div class="search-button-loader loader hidden"></div>
 					<svg class="search-icon" width="30" height="30">
@@ -72,6 +81,7 @@
 				</button>
 			</form>
 
+			<!-- Books list -->
 			<ul id="books-list"></ul>
 		</main>
 		<script type="module" src="/src/index.js"></script>

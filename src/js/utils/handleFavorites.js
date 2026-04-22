@@ -1,3 +1,5 @@
+// ! Processing an array of favorite books saved in local storage
+
 const handleFavorites = inputNode => {
 	const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
 

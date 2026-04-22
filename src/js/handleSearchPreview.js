@@ -1,6 +1,6 @@
-import { fetchPreview } from "./fetchBooks";
+import { fetchPreview } from "./utils/fetchBooks";
 import handleBooksList from "./handleBookList";
-import debounce from "./debounce";
+import debounce from "./utils/debounce";
 
 const refs = {
 	input: document.querySelector(".search-input"),
@@ -22,6 +22,7 @@ const createPreviewMarkup = previewList =>
 		})
 		.join("");
 
+// ! Reset the search input and hide the preview
 refs.resetBtn.addEventListener("click", () => {
 	refs.preview.classList.add("hidden");
 	refs.input.value = "";
@@ -29,6 +30,7 @@ refs.resetBtn.addEventListener("click", () => {
 	document.querySelector("#books-list").innerHTML = "";
 });
 
+// ! Handle the preview search
 refs.input.addEventListener(
 	"input",
 	debounce(async e => {

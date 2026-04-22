@@ -34,6 +34,7 @@ const createAsideFavoritesListMarkup = () => {
 		.join("");
 };
 
+// ! Close aside on escape key and dlete event listener
 const handleKeyUp = e => {
 	e.preventDefault();
 
@@ -44,6 +45,7 @@ const handleKeyUp = e => {
 	}
 };
 
+// ! Delete book from favorites and update localStorage
 const handleDeleteFavorite = e => {
 	if (e.target.dataset.id) {
 		const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -64,9 +66,11 @@ const openAside = () => {
 
 	refs.backdrop.classList.remove("hidden");
 
+	// ! Add event listener for closing on esc
 	window.addEventListener("keyup", handleKeyUp);
 };
 
+// ! Close aside on backdrop click
 refs.backdrop.addEventListener("click", e => {
 	if (e.target === e.currentTarget) {
 		closeAside();
@@ -75,6 +79,7 @@ refs.backdrop.addEventListener("click", e => {
 
 refs.openBtn.addEventListener("click", openAside);
 
+// ! Handle delete favorite
 refs.list.addEventListener("click", e => handleDeleteFavorite(e));
 
 refs.closeBtn.addEventListener("click", () => closeAside());

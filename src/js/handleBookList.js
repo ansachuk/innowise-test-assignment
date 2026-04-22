@@ -1,4 +1,5 @@
-import fetchBooks from "./fetchBooks";
+import fetchBooks from "./utils/fetchBooks";
+import handleFavorites from "./utils/handleFavorites";
 
 const list = document.querySelector("#books-list");
 
@@ -49,6 +50,8 @@ const createBadResultMarkup = errorCode =>
 		<p>There is no book with ${errorCode === 422 ? "such a short" : "that"} title...</p>
 	</li>`;
 
+// ! Creating markup from a search result by query
+
 const handleBooksList = async q => {
 	if (!q) return;
 
@@ -79,5 +82,8 @@ const handleBooksList = async q => {
 
 	scrollToInput(list);
 };
+
+// ! Handle favorite toggle
+list.addEventListener("click", ({ target }) => (target.nodeName === "INPUT" ? handleFavorites(target) : null));
 
 export default handleBooksList;
