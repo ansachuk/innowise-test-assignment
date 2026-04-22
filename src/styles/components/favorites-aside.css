@@ -3,14 +3,15 @@
 	max-width: 400px;
 	height: 100vh;
 
-	background: var(--text);
+	background: var(--custom-bg);
 	padding: 22px;
 
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 
-	overflow-x: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
 
 	transition: transform var(--tr-duration) linear;
 }
@@ -25,7 +26,7 @@
 }
 
 .favorites-close {
-	background-color: var(--accent-border);
+	background-color: transparent;
 
 	display: flex;
 	justify-content: center;

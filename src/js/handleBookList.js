@@ -1,8 +1,10 @@
 import fetchBooks from "./fetchBooks";
 
+const list = document.querySelector("#books-list");
+
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-const scrollToInput = listNode => window.scrollTo({ top: listNode.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
+const scrollToInput = list => window.scrollTo({ top: list.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
 
 const createListMarkup = (books, savedFavorites) =>
 	books
@@ -47,8 +49,8 @@ const createBadResultMarkup = errorCode =>
 		<p>There is no book with ${errorCode === 422 ? "such a short" : "that"} title...</p>
 	</li>`;
 
-const handleBooksListMarkup = async (q, listNode) => {
-	if (!q || !listNode) return;
+const handleBooksList = async q => {
+	if (!q) return;
 
 	let finalMarkup = "";
 	let books = [];
@@ -57,7 +59,7 @@ const handleBooksListMarkup = async (q, listNode) => {
 	if (q.length < 3) {
 		scrollToTop();
 		setTimeout(() => {
-			listNode.innerHTML = createBadResultMarkup(422);
+			list.innerHTML = createBadResultMarkup(422);
 		}, 300);
 		return;
 	} else {
@@ -67,15 +69,15 @@ const handleBooksListMarkup = async (q, listNode) => {
 	if (books?.length === 0) {
 		scrollToTop();
 		setTimeout(() => {
-			listNode.innerHTML = createBadResultMarkup(404);
+			list.innerHTML = createBadResultMarkup(404);
 		}, 300);
 	} else {
 		finalMarkup = createListMarkup(books, savedFavorites);
 	}
 
-	listNode.innerHTML = finalMarkup;
+	list.innerHTML = finalMarkup;
 
-	scrollToInput(listNode);
+	scrollToInput(list);
 };
 
-export default handleBooksListMarkup;
+export default handleBooksList;

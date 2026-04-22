@@ -2,6 +2,7 @@
 
 :root {
 	--tr-duration: 150ms;
+	--custom-bg: rgb(168, 159, 178);
 }
 
 :root[data-theme="light"] {

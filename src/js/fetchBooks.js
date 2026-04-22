@@ -31,4 +31,21 @@ const fetchBooks = async q => {
 	return books;
 };
 
+export const fetchPreview = async q => {
+	if (q.length < 3) {
+		throw new Error(e);
+	}
+	const previewList = [];
+
+	try {
+		const data = await (await fetch(BASE_URL + `search.json?fields=title,first_publish_year,&limit=10&q=${q}`)).json();
+
+		previewList.push(...data.docs);
+	} catch (e) {
+		throw new Error(e);
+	}
+
+	return previewList;
+};
+
 export default fetchBooks;
